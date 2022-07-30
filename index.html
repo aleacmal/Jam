@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jam Digital</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .content {
+        background-image: url(alelogo.png);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: 10rem;
+        background-color: black;
+        height: 100vh;
+        display: grid;
+        place-content: center;
+      }
+      .waktuTampil {
+        color: #ddd;
+        font-size: 4rem;
+        text-align: center;
+      }
+      h1 {
+        font-size: 13rem;
+        font-weight: 700;
+        font-family: "Times New Roman", Times, serif;
+        color: #ddd;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body onload="waktuMulai()">
+    <div class="content">
+      <div class="tanggal">
+        <p class="waktuTampil">Senin, 2 Maret 2022</p>
+      </div>
+      <div class="jam">
+        <h1>00:00:00</h1>
+      </div>
+    </div>
+    <script>
+      "use strict";
+      const waktuTampil = document.querySelector(".waktuTampil");
+      const waktu = new Date();
+      let hari = waktu.getDay();
+      let tgl = waktu.getDate();
+      let bulan = waktu.getMonth();
+      let tahun = waktu.getFullYear();
+
+      if (hari === 1) hari = "Senin";
+      else if (hari === 2) hari = "Selasa";
+      else if (hari === 3) hari = "Rabu";
+      else if (hari === 4) hari = "Kamis";
+      else if (hari === 5) hari = "Jum'at";
+      else if (hari === 6) hari = "Sabtu";
+      else if (hari === 7) hari = "Minggu";
+
+      if (bulan === 0) bulan = "Januari";
+      else if (bulan === 1) bulan = "Februari";
+      else if (bulan === 2) bulan = "Maret";
+      else if (bulan === 3) bulan = "April";
+      else if (bulan === 4) bulan = "Mei";
+      else if (bulan === 5) bulan = "Juni";
+      else if (bulan === 6) bulan = "Juli";
+      else if (bulan === 7) bulan = "Agustus";
+      else if (bulan === 8) bulan = "September";
+      else if (bulan === 9) bulan = "Oktober";
+      else if (bulan === 10) bulan = "November";
+      else if (bulan === 11) bulan = "Desember";
+
+      waktuTampil.innerHTML = `${hari}, ${tgl} ${bulan} ${tahun}`;
+
+      function waktuMulai() {
+        const jamDigital = document.querySelector("h1");
+        const date = new Date();
+
+        let hh = date.getHours();
+        let mm = date.getMinutes();
+        let ss = date.getSeconds();
+
+        hh = hh < 10 ? `0${hh}` : hh;
+        mm = mm < 10 ? `0${mm}` : mm;
+        ss = ss < 10 ? `0${ss}` : ss;
+
+        jamDigital.innerHTML = `${hh}:${mm}:${ss}`;
+        setTimeout(waktuMulai);
+      }
+    </script>
+  </body>
+</html>
