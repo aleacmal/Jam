@@ -53,13 +53,13 @@
       let bulan = waktu.getMonth();
       let tahun = waktu.getFullYear();
 
-      if (hari === 1) hari = "Senin";
-      else if (hari === 2) hari = "Selasa";
+      if (hari === 0) hari = "Senin";
+      else if (hari === 1) hari = "Selasa";
       else if (hari === 3) hari = "Rabu";
       else if (hari === 4) hari = "Kamis";
       else if (hari === 5) hari = "Jum'at";
       else if (hari === 6) hari = "Sabtu";
-      else if (hari === 7) hari = "Minggu";
+      else if (hari === 0) hari = "Minggu";
 
       if (bulan === 0) bulan = "Januari";
       else if (bulan === 1) bulan = "Februari";
